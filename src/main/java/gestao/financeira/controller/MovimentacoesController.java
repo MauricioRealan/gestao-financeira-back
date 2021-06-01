@@ -1,5 +1,6 @@
 package gestao.financeira.controller;
 
+import gestao.financeira.dtos.BalancoFinanceiroDTO;
 import gestao.financeira.dtos.MovimentacoesDTO;
 import gestao.financeira.services.MovimentacoesService;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +37,11 @@ public class MovimentacoesController {
 	public ResponseEntity<List<MovimentacoesDTO>> delete(@PathVariable("idMovimentacao") @NotNull final String idMovimentacao) {
 		return ResponseEntity.ok(this.movimentacoesService.delete(idMovimentacao));
 	}
-
+	
+	@GetMapping(path = "/balanco-financeiro")
+	public ResponseEntity<BalancoFinanceiroDTO> findBalancoFinanceiro() {
+		return ResponseEntity.ok(this.movimentacoesService.buildBalancoFinanceiro());
+	}
+	
+	
 }
