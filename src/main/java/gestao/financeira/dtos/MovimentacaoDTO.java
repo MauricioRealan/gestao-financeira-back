@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Builder
-public class MovimentacoesDTO {
+public class MovimentacaoDTO {
 	
 	private String id;
 	

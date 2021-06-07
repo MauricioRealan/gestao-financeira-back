@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @ToString
 @Document(collection = "movimentos")
-public class Movimentacoes {
+public class Movimentacao {
 	
 	@Id
 	private String id;

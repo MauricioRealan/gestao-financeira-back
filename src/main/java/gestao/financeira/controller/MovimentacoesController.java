@@ -1,7 +1,7 @@
 package gestao.financeira.controller;
 
 import gestao.financeira.dtos.BalancoFinanceiroDTO;
-import gestao.financeira.dtos.MovimentacoesDTO;
+import gestao.financeira.dtos.MovimentacaoDTO;
 import gestao.financeira.services.MovimentacoesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,17 +24,17 @@ public class MovimentacoesController {
 	}
 	
 	@GetMapping(path = "/buscar")
-	public ResponseEntity<List<MovimentacoesDTO>> findAll() {
+	public ResponseEntity<List<MovimentacaoDTO>> findAll() {
 		return ResponseEntity.ok(this.movimentacoesService.findAll());
 	}
 	
 	@PostMapping(path = "/salvar")
-	public ResponseEntity<String> save(@RequestBody @Valid final MovimentacoesDTO movimentacoesDTO) {
-		return ResponseEntity.ok(this.movimentacoesService.save(movimentacoesDTO));
+	public ResponseEntity<String> save(@RequestBody @Valid final MovimentacaoDTO movimentacaoDTO) {
+		return ResponseEntity.ok(this.movimentacoesService.save(movimentacaoDTO));
 	}
 	
 	@PostMapping(path = "/excluir/{idMovimentacao}")
-	public ResponseEntity<List<MovimentacoesDTO>> delete(@PathVariable("idMovimentacao") @NotNull final String idMovimentacao) {
+	public ResponseEntity<List<MovimentacaoDTO>> delete(@PathVariable("idMovimentacao") @NotNull final String idMovimentacao) {
 		return ResponseEntity.ok(this.movimentacoesService.delete(idMovimentacao));
 	}
 	
